@@ -16,20 +16,19 @@
  */
 package cal;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Hashtable;
 
 import jakarta.servlet.http.HttpServletRequest;
 
 public class Entries {
 
-    private final Map<String, Entry> entries;
+    private final Hashtable<String, Entry> entries;
     private static final String[] time = { "8am", "9am", "10am", "11am",
             "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm" };
     public static final int rows = 12;
 
     public Entries() {
-        entries = new ConcurrentHashMap<>(rows);
+        entries = new Hashtable<>(rows);
         for (int i = 0; i < rows; i++) {
             entries.put(time[i], new Entry(time[i]));
         }
